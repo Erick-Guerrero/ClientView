@@ -14,7 +14,7 @@ export default function FooterLot() {
           Contact
         </Footer.Link>
       </Footer.LinkGroup>
-      <IconsFooter />
+      {/* <IconsFooter /> */}
       <Footer.Copyright className='fortune' by="Fortune Numbers™" year={2023} style={{ color: "#005643",textDecoration: "none" }} />
 
     </Footer>
