@@ -10,9 +10,9 @@ import Reloj from "../ActualHr/actualHr"
 import logo2 from "./logo2.png"
 
 const navigation = [
-  { name: 'Como jugar', to: '/comojugar', current: false },
-  { name: 'Numeros', to: '/', current: false },
-  { name: 'Eres Ganador?', to: '/eresganador', current: false },
+  { name: 'Cómo jugar', to: '/comojugar', current: false },
+  { name: 'Números', to: '/', current: false },
+  { name: '¿Eres Ganador?', to: '/eresganador', current: false },
 ];
 
 function classNames(...classes) {
