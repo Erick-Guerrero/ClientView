@@ -38,8 +38,7 @@ export default function Sorteos() {
          <div className="sectionPremios">
           <h3 className="titlesJugar1">Sorteos</h3>
           <p>
-            Los premios se basan en la cantidad apostada y la posición donde
-            salieron los 3 números ganadores:
+          Puedes apostar a los siguientes sorteos, todos los días, tener en cuenta los horarios.
           </p>
           <table className="tabla">
         <thead>
