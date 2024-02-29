@@ -13,6 +13,7 @@ const navigation = [
   { name: 'Cómo jugar', to: '/comojugar', current: false },
   { name: 'Números', to: '/', current: false },
   { name: '¿Eres Ganador?', to: '/eresganador', current: false },
+  { name: 'Sorteos', to: '/sorteos', current: false },
 ];
 
 function classNames(...classes) {
