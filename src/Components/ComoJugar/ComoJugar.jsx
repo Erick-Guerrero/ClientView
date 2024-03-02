@@ -12,11 +12,11 @@ export default function ComoJugar() {
           <div className="section">
             <h2 className="titlesJugar">¿Cómo se juega la Quiniela?</h2>
             <p>
-              La Quiniela es una forma de apostar en la que los participantes
-              eligen hasta tres números, del 00 al 99, en una lotería específica
-              con la esperanza de ganar premios en efectivo, apostando un monto
-              específico.
-            </p>
+            La Quiniela se lleva a cabo todos los días del año con horarios específicos 
+            <a href="/sorteos"> (ver horarios)</a> 
+            establecidos por entidades autorizadas. Los tres números ganadores se eligen aleatoriamente y los números premiados lo puedes 
+            <a href="/"> (ver aquí)</a> 
+            .</p>
           </div>
 
           <div className="sectionPremios">
@@ -60,7 +60,7 @@ export default function ComoJugar() {
               específicos establecidos por entidades autorizadas. Los tres
               números ganadores se eligen aleatoriamente y se anuncian en el
               establecimiento o se pueden consultar en el sitio web{" "}
-              <a href="https://www.fortunenumber.com">www.fortunenumber.com</a>.
+              <a href="https://www.pegatres.app/">www.pegatres.app.com</a>.
             </p>
           </div>
         </div>

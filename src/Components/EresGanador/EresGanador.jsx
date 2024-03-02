@@ -31,7 +31,7 @@ export default function EresGanador() {
                   <li>◉ El ticket ganador se puede cobrar después de una 30 min de haberse realizado el sorteo.</li>
                   <li>◉ El ticket ganador tiene una vigencia de 7 días, si no lo cobras dentro de esos días, el ticket expira.</li>
                   <li>◉ La persona que jugó es la que debe acercarse al establecimiento a reclamar el premio.</li>
-                  <li>◉ Si el establecimiento no está dispuesto a pagar el premio por favor repórtalo al +1 829 641 8361.</li>
+                  <li>◉ Si el establecimiento no está dispuesto a pagar el premio por favor repórtalo al +9 42 359 134.</li>
                 </ul>
           
              
