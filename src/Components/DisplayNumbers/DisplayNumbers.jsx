@@ -94,6 +94,8 @@ function DisplayNumbers() {
       <br />
       <div className="hotNumbers">
         <div className="containerHotNumbers">
+          <h1 style={{ fontWeight: 'bold' }}>Estos son los números mas ganadores del mes.</h1>
+          <br></br>
           <div className="numberContainerRow">
             <HotNumbers number={number1} />
             <HotNumbers number={number2} />
@@ -101,6 +103,20 @@ function DisplayNumbers() {
             <HotNumbers number={number4} />
             <HotNumbers number={number5} />
             <HotNumbers number={number6} />
+
+          </div>
+          <br></br>
+          <div>
+
+            <h1 style={{ fontWeight: 'bold' }}><div className="timerContainer" style={{ display: 'inline-block' }}>
+              <div className="timer" style={{ textAlign: 'center', backgroundColor: 'var(--Timer-background-color-timer)', borderRadius: 'var(--Timer-border-radius-timer)', padding: 'var(--Timer-padding-timer)', color: 'var(--Timer-color-timer)', fontWeight: 'var(--Timer-font-weight-timer)' }}>
+                <div style={{ fontSize: 'var(--Timer-font-size-timer)' }}>
+                  <span style={{ margin: '0 var(--Timer-margin-timer)' }}>hh</span>:
+                  <span style={{ margin: '0 var(--Timer-margin-timer)' }}>mm</span>:
+                  <span style={{ margin: '0 var(--Timer-margin-timer)' }}>ss</span>
+                </div>
+              </div>
+            </div> Es el tiempo en el que aparecerán los números ganadores de ese sorteo.</h1>
 
           </div>
         </div>

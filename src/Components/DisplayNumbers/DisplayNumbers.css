@@ -20,6 +20,19 @@
   color: var(--text-color);
 }
 
+.timerContainer {
+  display: flex;
+  align-items: center; /* Centra verticalmente el temporizador */
+}
+
+.timer {
+  text-align: center;
+  background-color: var(--Timer-background-color-timer);
+  border-radius: var(--Timer-border-radius-timer);
+  padding: var(--Timer-padding-timer);
+  color: var(--Timer-color-timer);
+  font-weight: var(--Timer-font-weight-timer);
+}
 
 
 .containerHotNumbers {
@@ -27,6 +40,8 @@
   flex-direction: column;
   padding: 5px;
   align-items: center;
+  text-align: center;
+ 
 
 }
 
