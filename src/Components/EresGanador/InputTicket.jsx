@@ -84,7 +84,7 @@ const InputTicket = () => {
         <div className="search-container">
           <input
             className="input"
-            style={{ backgroundColor: '#c1c2c2' }}
+            style={{ backgroundColor: '#e7e9e9' }}
             type="text"
             placeholder="Pagar Ticket"
             name="validationCode"

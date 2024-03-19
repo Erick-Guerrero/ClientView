@@ -16,7 +16,7 @@
     position: relative;
     width: 100%;
     border-radius: 50px;
-    background-color: #c1c2c2;
+    background-color: #e7e9e9;
     padding: 5px;
     display: flex;
     align-items: center;
@@ -33,25 +33,25 @@
   .search-container::before {
     top: -1px;
     left: -1px;
-    background-color:#c1c2c2;
+    background-color:#e7e9e9;
     z-index: -1;
   }
   
   .search-container::after {
     bottom: -1px;
     right: -1px;
-    background-color: #d1efe9;
-    box-shadow: #c1c2c2;
+    background-color: #e7e9e9;
+    box-shadow: #e7e9e9;
     z-index: -2;
   }
   
   .input {
-    background-color: #c1c2c2;
+    background-color: #e7e9e9;
     padding: 20px;
     width: 90%;
     margin-left: 4px;
     border: none;
-    color: #c1c2c2;
+    color: #e7e9e9;
     font-size: 20px;
     border-radius: 50px;
   }
@@ -61,14 +61,14 @@
     border: 1px solid transparent; /* Cambiar el color del borde a transparente */
     border-radius: 20px;
     margin-right: 4px;
-    color: #c1c2c2;
+    color: #e7e9e9;
 
   }
   
   .search__icon {
     width: 50px;
     aspect-ratio: 1;
-    border-left: 2px solid #c1c2c2;
+    border-left: 2px solid #e7e9e9;
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
     border-radius: 50%;

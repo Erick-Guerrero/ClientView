@@ -7,6 +7,16 @@
   font-size: 20px;
 }
 
+.loading {
+  text-align: center;
+  width: 100%;
+  padding-top: 50px; /* Margen superior para separar del borde superior */
+  height: 100px; /* Altura más grande */
+  display: flex; /* Para centrar verticalmente */
+  justify-content: center; /* Para centrar horizontalmente */
+  align-items: center; /* Para centrar verticalmente */
+}
+
 .reloj {
   display: flex;
   flex-direction: column;

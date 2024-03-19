@@ -17,6 +17,8 @@ function DisplayNumbers() {
   const hotNumbers = useSelector((state) => state.hotNumbers);
   const [currentDate, setCurrentDate] = useState(time);
   const [selectedLottery, setSelectedLottery] = useState('')
+  const [isLoading, setIsLoading] = useState(true);
+  
 
   const number1 = hotNumbers?.data?.lastMonthNumbers1?.[0]?.number1;
   const number2 = hotNumbers?.data?.lastMonthNumbers1?.[1]?.number1;
@@ -27,15 +29,23 @@ function DisplayNumbers() {
 
   useEffect(() => {
     dispatch(getHotNumbers())
-    if (fechaSeleccionada && selectedLottery) {
-      dispatch(getAllNumbers(fechaSeleccionada, selectedLottery)); // Obtener los números según la fecha y lotería seleccionadas
-    } else if (fechaSeleccionada) {
-      dispatch(getAllNumbers(fechaSeleccionada)); // Obtener los números según la fecha seleccionada
-    } else if (selectedLottery) {
-      dispatch(getAllNumbers(selectedLottery)); // Obtener los números según la lotería seleccionada
-    } else {
-      dispatch(getAllNumbers());
-    }
+      .then(() => {
+        if (fechaSeleccionada && selectedLottery) {
+          return dispatch(getAllNumbers(fechaSeleccionada, selectedLottery));
+        } else if (fechaSeleccionada) {
+          return dispatch(getAllNumbers(fechaSeleccionada));
+        } else if (selectedLottery) {
+          return dispatch(getAllNumbers(selectedLottery));
+        } else {
+          return dispatch(getAllNumbers());
+        }
+      })
+      .catch(error => {
+        // Manejar errores si es necesario
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [dispatch]);
 
   function handleTimerExpired() {
@@ -103,11 +113,9 @@ function DisplayNumbers() {
             <HotNumbers number={number4} />
             <HotNumbers number={number5} />
             <HotNumbers number={number6} />
-
           </div>
           <br></br>
           <div>
-
             <h1 style={{ fontWeight: 'bold' }}><div className="timerContainer" style={{ display: 'inline-block' }}>
               <div className="timer" style={{ textAlign: 'center', backgroundColor: 'var(--Timer-background-color-timer)', borderRadius: 'var(--Timer-border-radius-timer)', padding: 'var(--Timer-padding-timer)', color: 'var(--Timer-color-timer)', fontWeight: 'var(--Timer-font-weight-timer)' }}>
                 <div style={{ fontSize: 'var(--Timer-font-size-timer)' }}>
@@ -117,88 +125,81 @@ function DisplayNumbers() {
                 </div>
               </div>
             </div> Es el tiempo en el que aparecerán los números ganadores de ese sorteo.</h1>
-
           </div>
         </div>
       </div>
-      {/* <br /> */}
-      {/* <div className="reloj">
-        <Reloj />
-      </div> */}
-      <div className="mainContainer">
-        <div className="square-container">
-          {data && data.data ? (
-            data.data.map((item, index) => {
-              return (
-                <div key={index} className="rectangle">
-                  <div className="fechaContainer">
-                    <h3 className="loteryName">{item.nameLottery}</h3>
-                    <a
-                      href={item.page}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        className="img"
-                        src={item?.imageUrl}
-                        alt="Nombre de la imagen"
-                      />
-                    </a>
-                    <br />
-                  </div>
-
-                  <div className="NumbersContainer">
-                    <div className="dateContainer">
-                      {item.number1 === -1 ? (
-
-
-                        <Timer
-                          expiryTime={calculateExpiryTimestamp(item.hr)}
-                          onTimerExpired={handleTimerExpired}
-                          fechaSeleccionada={fechaSeleccionada}
+      {isLoading ? (
+        <div className="loading">Cargando...</div>
+      ) : (
+        <div className="mainContainer">
+          <div className="square-container">
+            {data && data.data ? (
+              data.data.map((item, index) => {
+                return (
+                  <div key={index} className="rectangle">
+                    <div className="fechaContainer">
+                      <h3 className="loteryName">{item.nameLottery}</h3>
+                      <a
+                        href={item.page}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className="img"
+                          src={item?.imageUrl}
+                          alt="Nombre de la imagen"
                         />
-
-
-                      ) : null}
-                      {fechaSeleccionada ? (
-                        <p className="date">
-                          {fechaSeleccionada.split('T')[0].split('-').reverse().join('/')}
-                        </p>
-                      ) : (
-                        item.day && (
-                          <p className="date">
-                            {new Date(item.day).toLocaleDateString("es-ES")}
-                          </p>
-                        )
-                      )}
-
-                      <p className="date">
-                        {formatTimeWithAMPM(item.hr)}
-                      </p>
+                      </a>
+                      <br />
                     </div>
-                    <div className="numberRow">
-                      <p className="number">
-                        {item.number1 === -1 ? "-" : item.number1.toString().padStart(2, '0')}
-                      </p>
-                      <p className="number">
-                        {item.number2 === -1 ? "-" : item.number2.toString().padStart(2, '0')}
-                      </p>
-                      <p className="number">
-                        {item.number3 === -1 ? "-" : item.number3.toString().padStart(2, '0')}
-                      </p>
+                    <div className="NumbersContainer">
+                      <div className="dateContainer">
+                        {item.number1 === -1 ? (
+                          <Timer
+                            expiryTime={calculateExpiryTimestamp(item.hr)}
+                            onTimerExpired={handleTimerExpired}
+                            fechaSeleccionada={fechaSeleccionada}
+                          />
+                        ) : null}
+                        {fechaSeleccionada ? (
+                          <p className="date">
+                            {fechaSeleccionada.split('T')[0].split('-').reverse().join('/')}
+                          </p>
+                        ) : (
+                          item.day && (
+                            <p className="date">
+                              {new Date(item.day).toLocaleDateString("es-ES")}
+                            </p>
+                          )
+                        )}
+                        <p className="date">
+                          {formatTimeWithAMPM(item.hr)}
+                        </p>
+                      </div>
+                      <div className="numberRow">
+                        <p className="number">
+                          {item.number1 === -1 ? "-" : item.number1.toString().padStart(2, '0')}
+                        </p>
+                        <p className="number">
+                          {item.number2 === -1 ? "-" : item.number2.toString().padStart(2, '0')}
+                        </p>
+                        <p className="number">
+                          {item.number3 === -1 ? "-" : item.number3.toString().padStart(2, '0')}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-
-            })
-          ) : (
-            <p></p>
-          )}
+                );
+              })
+            ) : (
+              <p></p>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
-}
+            }
+  
 
 export default DisplayNumbers;
