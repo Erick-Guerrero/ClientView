@@ -86,7 +86,7 @@ const InputTicket = () => {
             className="input"
             style={{ backgroundColor: '#e7e9e9' }}
             type="text"
-            placeholder="Pagar Ticket"
+            placeholder="Pegar código"
             name="validationCode"
             value={data.validationCode}
             onChange={handleChange}
