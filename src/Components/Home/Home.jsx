@@ -3,8 +3,8 @@ import DisplayNumbers from "../DisplayNumbers/DisplayNumbers";
 import Navbar from "../Navbar/Navbar"
 import FooterLot from "../Footer/Footer"
 
-
 function Home() {
+
     return (
       <>
         <Navbar/>

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { fechaSelecionada, getAllNumbers } from '../Redux/Actions';
 import "./SelectDate.css";
 
-function SelectDate({ onDateChange }) {
+function SelectDate() {
   const today = new Date();
   const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
   const dispatch = useDispatch();
@@ -14,9 +14,10 @@ function SelectDate({ onDateChange }) {
     setSelectedDate(selectedDateValue);
     if (selectedDateValue) {
       dispatch(fechaSelecionada(selectedDateValue));
-      onDateChange(selectedDateValue); // Pasar la fecha seleccionada al componente padre
     }
   };
+
+  console.log(selectedDate);
 
   useEffect(() => {
     if (selectedDate) {

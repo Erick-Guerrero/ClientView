@@ -27,7 +27,12 @@ function DisplayNumbers() {
   const number5 = hotNumbers?.data?.lastMonthNumbers1?.[4]?.number1;
   const number6 = hotNumbers?.data?.lastMonthNumbers1?.[5]?.number1;
 
+  const today = new Date();
+  const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`;
+
+
   useEffect(() => {
+  
     dispatch(getHotNumbers())
       .then(() => {
         if (fechaSeleccionada && selectedLottery) {
@@ -37,7 +42,7 @@ function DisplayNumbers() {
         } else if (selectedLottery) {
           return dispatch(getAllNumbers(selectedLottery));
         } else {
-          return dispatch(getAllNumbers());
+          return dispatch(getAllNumbers(formattedDate));
         }
       })
       .catch(error => {
@@ -47,6 +52,8 @@ function DisplayNumbers() {
         setIsLoading(false);
       });
   }, [dispatch]);
+
+  console.log(formattedDate);
 
   function handleTimerExpired() {
     // La función que se ejecutará cuando el temporizador llegue a cero
