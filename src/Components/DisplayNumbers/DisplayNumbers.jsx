@@ -70,10 +70,14 @@ function DisplayNumbers() {
       return null; // Devuelve null si la hora no es válida
     }
 
+        // Convertir la hora a minutos
+        const totalMinutes = horaCliente.hour() * 60 + horaCliente.minute();
+
     // Si la hora ya pasó, avanzar un día
-    if (horaCliente.isBefore(moment())) {
-      horaCliente.add(1, 'day');
-    }
+    if (totalMinutes > 1425) {
+      // Configurar el temporizador para que expire en 10 minutos
+      return moment().add(10, 'minutes').valueOf();
+  }
 
     // Devuelve el tiempo de expiración en milisegundos
     return horaCliente.valueOf();
