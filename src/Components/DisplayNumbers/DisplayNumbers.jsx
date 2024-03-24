@@ -53,8 +53,6 @@ function DisplayNumbers() {
       });
   }, [dispatch]);
 
-  console.log(formattedDate);
-
   function handleTimerExpired() {
     // La función que se ejecutará cuando el temporizador llegue a cero
     window.location.reload();
@@ -70,14 +68,9 @@ function DisplayNumbers() {
       return null; // Devuelve null si la hora no es válida
     }
 
-        // Convertir la hora a minutos
-        const totalMinutes = horaCliente.hour() * 60 + horaCliente.minute();
-
-    // Si la hora ya pasó, avanzar un día
-    if (totalMinutes > 1425) {
-      // Configurar el temporizador para que expire en 10 minutos
-      return moment().add(10, 'minutes').valueOf();
-  }
+    if (horaCliente.isBefore(moment())) {
+      horaCliente.add(10, 'minutes');
+    }
 
     // Devuelve el tiempo de expiración en milisegundos
     return horaCliente.valueOf();
